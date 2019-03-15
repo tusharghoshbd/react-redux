@@ -3,7 +3,7 @@ import './App.css';
 
 import First from './First/First';
 import Counter from './Counter/Counter';
-
+import Style from './style/Style';
 
 class App extends Component {
 
@@ -16,6 +16,7 @@ class App extends Component {
                 <First name="Tushar Kumar Ghsoh" email="tushar.ghosh1@gmail.com"/>
 
                 <Counter />
+                <Style />
             </div>
         );
     }
