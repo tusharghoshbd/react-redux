@@ -3,7 +3,7 @@ import {Provider} from 'react-redux'
 
 import { createStore } from 'redux';
 import Counter from './components/Counter';
-import CounterControl from './components/CounterControl'
+import CounterControl from './components/CounterControl';
 import store from './store/index'
 
 // const reducer = (state = {}, action) => {
