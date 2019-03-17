@@ -6,7 +6,15 @@ import Counter from './Counter/Counter';
 import Style from './style/Style';
 import Books from './Books/Books';
 import FilterableProduct from './FilterableProduct/FilterableProduct'
+import Teperature from './Temperature/Temperature'
 
+function toCelsius(fahrenheit) {
+    return ((fahrenheit - 32) * 5 / 9).toFixed(2);
+  }
+  
+  function toFahrenheit(celsius) {
+    return ((celsius * 9 / 5) + 32).toFixed(2);
+  }
 class App extends Component {
 
     // constructor(){
@@ -45,6 +53,27 @@ class App extends Component {
 
     // }
    
+    //***************Temperature code*********************** */
+    state = {
+        celcius: '',
+        fahrenheit: ''
+    }
+
+    handleCelciusChange(pCelcius){
+
+        this.setState({
+            celcius: pCelcius,
+            fahrenheit: toFahrenheit(pCelcius)
+        });
+    }
+    handleFahrenheitChange(pFahrenheit){
+
+        this.setState({
+            celcius: toCelsius(pFahrenheit),
+            fahrenheit: pFahrenheit
+        });
+    }
+   
    
  
     render() {
@@ -65,9 +94,23 @@ class App extends Component {
                     /> 
                 </div> */}
 
-                <div className="container">
+                {/* <div className="container">
                     <FilterableProduct />
+                </div> */}
+
+                <div className="container">
+                    <Teperature  
+                        tempertureType={'Celcius'} 
+                        temperture={this.state.celcius}
+                        handleTemperatureChange = {this.handleCelciusChange.bind(this)}
+                        />
+                    <Teperature  
+                        tempertureType={'Fahrenheit'} 
+                        temperture={this.state.fahrenheit}
+                        handleTemperatureChange = {this.handleFahrenheitChange.bind(this)}/>
                 </div>
+
+
             </div>
         );
     }
